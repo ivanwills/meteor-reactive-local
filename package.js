@@ -3,6 +3,8 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
+    api.use('jquery-localstorage', ['client']);
+
     api.add_files('reactive-local.js', ['client']);
 });
 
