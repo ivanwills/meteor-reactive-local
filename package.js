@@ -9,5 +9,6 @@ Package.on_use(function(api) {
     api.add_files('reactive-local.js', ['client']);
 
     api.export('ReactiveLocal');
+    api.export('ReactiveSession');
 });
 
