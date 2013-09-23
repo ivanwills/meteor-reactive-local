@@ -19,6 +19,8 @@ ReactiveLocal = {
     // the changed() method on the dependency object which will
     // trigger any dependent functions to be re-run.
     set: function (key, value) {
+        if ( typeof value == 'function' )
+            throw "Can't store functions in ReactiveLocal! (Storing key '" + key + "')";
         $.localStorage(key, value);
         this.ensureDeps(key).changed();
     },
@@ -54,6 +56,8 @@ ReactiveSession = {
     // the changed() method on the dependency object which will
     // trigger any dependent functions to be re-run.
     set: function (key, value) {
+        if ( typeof value == 'function' )
+            throw "Can't store functions in ReactiveSession! (Storing key '" + key + "')";
         $.sessionStorage(key, value);
         this.ensureDeps(key).changed();
     },
